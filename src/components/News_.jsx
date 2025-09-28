@@ -11,8 +11,7 @@ function News({ country, category, pageSize }) {
     const fetchNews = async () => {
       try {
         setLoading(true);
-        const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=1a2abb4d02d049528d3112e5f45a8ace&page=${page}&pageSize=${pageSize}`;
-        const response = await fetch(url);
+const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=${page}&pageSize=${pageSize}`;        const response = await fetch(url);
         const data = await response.json();
         console.log("Fetched data:", data);
         setArticles(data.articles || []);
